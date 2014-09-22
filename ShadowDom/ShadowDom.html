@@ -1,56 +1,19 @@
 <html>
 <head>
-    <title> Spinner Demo </title>
-    <style>
-
-        .spinner > div {
-            background-color: #007cbf;
-            height: 100px;
-            width: 12px;
-            display: inline-block;
-            -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
-        }
-
-        .spinner .spinnerbar:nth-child(1) {
-            -webkit-animation-delay: -1.1s;
-        }
-
-        .spinner .spinnerbar:nth-child(2) {
-            -webkit-animation-delay: -1s;
-        }
-
-        .spinner .spinnerbar:nth-child(3) {
-            -webkit-animation-delay: -0.9s;
-        }
-        .spinner .spinnerbar:nth-child(4) {
-            -webkit-animation-delay: -0.8s;
-        }
-
-        @-webkit-keyframes stretchdelay {
-            0%,
-            40%,
-            100% {
-                -webkit-transform: scaleY(0.4);
-            }
-            20% {
-                -webkit-transform: scaleY(1);
-            }
-        }
-    </style>
-    
+    <title> Shadow DOM Demo </title>
 </head>
 <body>
-<div class="spinner">
-    <div class="SpinnerBar"></div>
-    <div class="SpinnerBar"></div>
-    <div class="SpinnerBar"></div>
-    <div class="SpinnerBar"></div>
+<div class="grammer">
+    <div class="vowels"> A E I O U </div>
+    <div class="alphabets"> A to Z </div>
 </div>
 
 <script>
-        var spinner = document.getElementsByClassName("spinner")[0];
-        var root = spinner.createShadowRoot();
-        root.innerHTML = "Loading please wait...<br/><content></content>";
+        var grammer = document.getElementsByClassName("grammer")[0];
+        var root = grammer.createShadowRoot();
+        root.innerHTML = "<b>English Grammer:</b><br/>"+
+                         "<content select='.vowels'></content>"+
+                         "<content select='.alphabets'></content>";
 </script>
 </body>
 </html>
