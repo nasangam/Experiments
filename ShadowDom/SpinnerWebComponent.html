@@ -1,12 +1,6 @@
 <html>
 <head>
-    <title> Custom Elements Demo </title>
-    <style>
-      :unresolved{ opacity: 0}
-      .x-spinner {
-             opacity: 1;
-      }
-    </style>
+    <title> Spinner Demo </title>
 </head>
 <body>
 <template id="spinnerTmpl">
@@ -54,36 +48,31 @@
     </div>
 </template>
 <script>
-    var XSpinnerProto = Object.create(HTMLElement.prototype);
-    XSpinnerProto.readyCallback = function(){
-        // Not supported as of now
-    }
+    (function(){
 
-    XSpinnerProto.createdCallback = function(){
-        var root = this.createShadowRoot(),
-            tmplContent = document.querySelector("#spinnerTmpl").content;
-        root.appendChild(tmplContent.cloneNode(true));
-    }
+        var currentdocument = document.currentScript.ownerDocument,
+            importedDocument = document,
+            XSpinnerProto = Object.create(HTMLElement.prototype);
 
-    XSpinnerProto.insertedCallback = function(){
-        // Not supported as of now
-    }
-
-    XSpinnerProto.removedCallback = function(){
-        // Not supported as of now
-    }
-
-    var XSpinner =  document.registerElement("x-spinner",
-            {
-                prototype: XSpinnerProto
-            });
-
+        XSpinnerProto.readyCallback = function(){
+            // Not supported as of now
+        }
+        XSpinnerProto.createdCallback = function(){
+            var root = this.createShadowRoot(),
+                    tmplContent = currentdocument.querySelector("#spinnerTmpl").content;
+            root.appendChild(tmplContent.cloneNode(true));
+        }
+        XSpinnerProto.insertedCallback = function(){
+            // Not supported as of now
+        }
+        XSpinnerProto.removedCallback = function(){
+            // Not supported as of now
+        }
+        window.XSpinner =  document.registerElement("x-spinner",
+                {
+                    prototype: XSpinnerProto
+                });
+    })();
 </script>
-<!-- create instance via tags -->
-<x-spinner></x-spinner>
-<script>
-    document.body.appendChild(new XSpinner());
-</script>
-
 </body>
 </html>
