@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Notification Tray</title>
+</head>
+<body>
+
+<div  class="container">
+    <ul class="menu">
+        <li><a href="#home">home</a></li>
+        <li><a href="#about">about</a></li>
+    </ul>
+    <div class="jumbotron">
+        <h3>{{appConfig.appTitle}}</h3>
+        <div> ======================</div>
+        <p>This is a sample app to demonstrate how the notifications can be shown to the user
+        <ul>
+            <li> Reports are available for viewing </li>
+            <li> Amendments due today/tomorrow </li>
+            <li> Today is the last day to file tax for this quarter/year...</li>
+            <li> Huge Tax Due, please take action... </li>
+            <li> Immediate action required...</li>
+            <li> Amendments rejected...</li>
+        </ul>
+        </p>
+    </div>
+    <ng-Notification-Tray></ng-Notification-Tray>
+
+</div>
+</body>
+</html>

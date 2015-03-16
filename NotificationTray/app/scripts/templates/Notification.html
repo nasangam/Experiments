@@ -1,0 +1,34 @@
+<div class="note" ng-repeat="note in notifications">
+    <div class="header">
+        <span><img src="app/images/{{note.type}}.png" class="note-icon"/></span>
+        <span class="note-title">{{note.title}}</span>
+        <span class="note-close" ng-click="removeNote($index)">x</span>
+        <span class="note-hide-toggle" ng-click="showAll()">...</span>
+        <span class="note-minimize" ng-click="hideAll()">-</span>
+    </div>
+    <div class="note-body">
+        <div class="description">
+            {{note.body}}
+        </div>
+    </div>
+    <div class="note-actions" ng-repeat="action in note.actions">
+        <div class="note-action" ng-switch="action.type">
+            <input type="button" value="{{action.name}}" onclick="window.open(action.url)" ng-switch-when="button">
+            <a href="{{action.url}}" ng-switch-when="link">{{action.name}}</a>
+        </div>
+    </div>
+</div>
+<div class="notificationTray">
+    <div class="note-tray-header">
+        <div class="note-tray-logo">
+            <img src="app/images/nonotification.png" class="tray-icon">
+            <div class="note-count">{{notifications.length}}</div>
+        </div>
+        <div class="note-tray-title"> Notifications</div>
+        <a href class="note-hide-toggle" ng-click="hideToggleTray()">
+           {{isNotesHidden()?'hide':'show'}}
+        </a>
+    </div>
+    <div class="note-tray-body">
+    </div>
+</div>
